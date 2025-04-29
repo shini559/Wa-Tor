@@ -1,4 +1,4 @@
-#PARAM
+#PARAM MONDE
 WIDTH: int = 20
 HEIGHT: int = 20
 
