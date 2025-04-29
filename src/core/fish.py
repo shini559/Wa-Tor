@@ -1,7 +1,16 @@
-from entity import Entity
+class Fish:
+    """
+    class Fish
+    """
+    def __init__(self, x: int, y: int):
+        """
 
+        :param x:
+        :param y:
+        :return:
+        """
+        self.x: int = x
+        self.y: int = y
 
-class Fish (Entity): 
-    def _init_(self, x: int, y: int):
-        super()._init_(x, y)
+        self.age = 0
         self.reproduction_timer: int = 0
