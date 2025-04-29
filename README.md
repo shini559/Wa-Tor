@@ -16,7 +16,7 @@ Wa-Tor/
 │   │   ├── planet.py      # Classe Planete (grille, toroïdalité, gestion globale)
 │   │   ├── entity.py      # Classe de base Entity (poisson, requin)
 │   │   ├── fish.py        # Classe Fish (Poisson) héritant de Entity
-│   │   ├── tona.py        # Classe Shark (Thon) héritant de Fish
+│   │   ├── tuna.py        # Classe Tuna (Thon) héritant de Fish
 │   │   ├── shark.py       # Classe Shark (Requin) héritant de Fish
 │   │   └── config.py      # Paramètres globaux (taille, temps de reproduction, etc.)
 │   │
