@@ -1,3 +1,6 @@
+from config import TUNA_REPRODUCTION_TIME
+
+
 class Fish:
     """
     class Fish
@@ -13,4 +16,4 @@ class Fish:
         self.y: int = y
 
         self.age = 0
-        self.reproduction_timer: int = 0
+        self.reproduction_timer: int = TUNA_REPRODUCTION_TIME

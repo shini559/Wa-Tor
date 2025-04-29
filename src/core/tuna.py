@@ -1,3 +1,4 @@
+from config import TUNA_REPRODUCTION_TIME
 from fish import Fish
 
 class Tuna(Fish):
@@ -11,5 +12,5 @@ class Tuna(Fish):
         :param y:
         :return:
         """
-        super()._init_(x, y)
-        self.reproduction_timer: int = 0
+        super().__init__(x, y)
+        self.reproduction_timer: int = TUNA_REPRODUCTION_TIME

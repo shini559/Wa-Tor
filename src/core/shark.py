@@ -10,5 +10,5 @@ class Shark(Fish):
         :param x:
         :param y:
         """
-        super()._init_(x, y)
+        super().__init__(x, y)
         self.reproduction_timer: int = 0
