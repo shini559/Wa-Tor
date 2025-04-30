@@ -1,5 +1,5 @@
-from config import TUNA_REPRODUCTION_TIME
-from fish import Fish
+from src.core.config import TUNA_REPRODUCTION_TIME
+from src.core.fish import Fish
 
 class Tuna(Fish):
     """
@@ -14,3 +14,7 @@ class Tuna(Fish):
         """
         super().__init__(x, y)
         self.reproduction_timer: int = TUNA_REPRODUCTION_TIME
+
+    def __str__(self):
+        return "F"  # F pour Fish (poisson)
+

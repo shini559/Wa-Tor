@@ -1,4 +1,4 @@
-from config import TUNA_REPRODUCTION_TIME
+from src.core.config import TUNA_REPRODUCTION_TIME
 
 
 class Fish:
