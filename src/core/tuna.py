@@ -1,5 +1,6 @@
 from src.core.config import TUNA_REPRODUCTION_TIME
 from src.core.fish import Fish
+from src.core.planet import Planet
 
 class Tuna(Fish):
     """

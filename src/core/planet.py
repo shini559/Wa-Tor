@@ -44,3 +44,12 @@ class Planet():
                         line += str(cell) + " "
                 print(line)
             print()
+
+    def toroidal_position(self, x: int, y: int) -> tuple:
+        """
+        Calculate the toroidal position of a cell in the grid.
+        :param x: x coordinate
+        :param y: y coordinate
+        :return: tuple of (x, y) coordinates
+        """
+        return x % WIDTH, y % HEIGHT
