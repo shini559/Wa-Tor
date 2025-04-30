@@ -1,5 +1,4 @@
 from src.core.fish import Fish
-from src.core.planet import Planet
 
 
 class Shark(Fish):
