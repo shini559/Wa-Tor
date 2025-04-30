@@ -1,9 +1,10 @@
 import tkinter as tk
 import os
-from src.core.config import WIDTH, HEIGHT
+from src.core.config import WIDTH, HEIGHT, NB_TUNA, NB_SHARK
 from PIL import Image, ImageTk
 
-CELL_SIZE = 30
+
+CELL_SIZE = 20
 
 base_path = os.path.dirname(os.path.abspath(__file__))
 assets_path = os.path.join(base_path, "assets")
@@ -18,16 +19,24 @@ class GridDisplay():
         self.root = tk.Tk()
         self.root.resizable(False, False)
         self.root.title("Wa-Tor")
-
         self.canvas = tk.Canvas(self.root, width=WIDTH * CELL_SIZE, height=HEIGHT * CELL_SIZE, bg="lightblue")
         self.canvas.pack()
 
-        # Chargement des images dans self.images
+        # Chargement des images dans un self.images
         self.images = {
             "water": load_image("sea.png"),
             "tuna": load_image("fish.png"),
             "shark": load_image("shark.png"),
         }
+
+        btn_frame = tk.Frame(self.root)  # conteneur pour les boutons
+        btn_frame.pack(pady=10)
+
+        stop_btn = tk.Button(btn_frame, text="Arrêter", command=self.stop_simulation, bg="red", fg="black")
+        stop_btn.pack(side="left", padx=10, pady=5)
+
+        restart_btn = tk.Button(btn_frame, text="Relancer", command=self.restart_simulation, bg="green", fg="black")
+        restart_btn.pack(side="left", padx=10, pady=5)
 
     def draw(self):
         self.canvas.delete("all")
@@ -50,6 +59,18 @@ class GridDisplay():
                 self.canvas.create_image(x, y, anchor="nw", image=img)
 
         self.root.image_refs = self.images  # conserver les images en mémoire
+
+    def stop_simulation(self):
+        """Ferme la fenêtre"""
+        self.root.destroy()
+
+    def restart_simulation(self):
+        """Réinitialise la planète et redessine"""
+        self.canvas.delete("all")
+        self.planet.initialize(NB_TUNA , NB_SHARK)
+        self.draw()
+
+
 
     def run(self):
         self.draw()
