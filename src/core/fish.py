@@ -21,7 +21,7 @@ class Fish:
         self.age = 0
         self.reproduction_timer: int = TUNA_REPRODUCTION_TIME
 
-        self.alive: bool = True
+        self.__alive: bool = True
 
     def move(self, x: int, y: int):
         self.last_x = self.x
@@ -37,4 +37,7 @@ class Fish:
         :return: tuple[x,y]
         """
         return self.last_x, self.last_y
+
+    def is_alive(self) -> bool:
+        return self.__alive
 
