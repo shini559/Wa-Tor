@@ -27,3 +27,11 @@ class Fish:
 
         self.x = x
         self.y = y
+
+    @property
+    def last_move(self) -> tuple[int,int]:
+        """
+        return the last position
+        :return: tuple[x,y]
+        """
+        return self.last_x, self.last_y
