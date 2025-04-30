@@ -1,6 +1,6 @@
-from config import WIDTH, HEIGHT
-from tuna import Tuna
-from shark import Shark
+from src.core.config import WIDTH, HEIGHT
+from src.core.tuna import Tuna
+from src.core.shark import Shark
 import random
 
 
@@ -25,11 +25,11 @@ class Planet():
 
         for _ in range(nb_poisson):
             x, y = positions.pop()
-            self.grid[x][y] = Tuna((x, y))
+            self.grid[x][y] = Tuna(x, y)
 
         for _ in range(nb_requin):
             x, y = positions.pop()
-            self.grid[x][y] = Shark((x, y))
+            self.grid[x][y] = Shark(x, y)
 
     def display(self):
             """
@@ -45,5 +45,11 @@ class Planet():
                 print(line)
             print()
 
-
-
+    def toroidal_position(self, x: int, y: int) -> tuple:
+        """
+        Calculate the toroidal position of a cell in the grid.
+        :param x: x coordinate
+        :param y: y coordinate
+        :return: tuple of (x, y) coordinates
+        """
+        return x % WIDTH, y % HEIGHT

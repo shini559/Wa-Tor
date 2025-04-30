@@ -1,4 +1,6 @@
-from .fish import Fish
+from src.core.fish import Fish
+from src.core.planet import Planet
+
 
 class Shark(Fish):
     """
@@ -12,3 +14,7 @@ class Shark(Fish):
         """
         super().__init__(x, y)
         self.reproduction_timer: int = 0
+
+    def __str__(self):
+        return "S"  # S pour Shark
+
