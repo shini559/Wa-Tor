@@ -1,4 +1,4 @@
-from src.core.config import WIDTH, HEIGHT
+from src.core.config import WIDTH, HEIGHT, NB_TUNA, NB_SHARK
 from src.core.tuna import Tuna
 from src.core.shark import Shark
 import random
@@ -11,7 +11,7 @@ class Planet():
     def __init__(self):
         self.grid = [[None for _ in range(WIDTH)] for _ in range(HEIGHT)]
 
-    def initialize(self, nb_poisson: int, nb_requin: int):
+    def initialize(self, NB_TUNA: int, NB_SHARK: int):
         """
         Initialize the planet with a given number of fish and sharks.
         :param nb_poisson:
@@ -19,15 +19,16 @@ class Planet():
         :return:
         """
         positions = [(x, y) for x in range(WIDTH) for y in range(HEIGHT)]
+        self.grid = [[None for _ in range(WIDTH)] for _ in range(HEIGHT)]
         random.shuffle(positions)
 
 
 
-        for _ in range(nb_poisson):
+        for _ in range(NB_TUNA):
             x, y = positions.pop()
             self.grid[x][y] = Tuna(x, y)
 
-        for _ in range(nb_requin):
+        for _ in range(NB_SHARK):
             x, y = positions.pop()
             self.grid[x][y] = Shark(x, y)
 
