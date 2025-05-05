@@ -1,3 +1,6 @@
+import random
+from typing import Tuple, List
+
 from src.core.config import TUNA_REPRODUCTION_TIME
 
 
@@ -23,12 +26,23 @@ class Fish:
 
         self.__alive: bool = True
 
-    def move(self, x: int, y: int):
+        self.move_dispo: List[Tuple[int, int]] = []
+
+    def move(self) -> None:
+        """
+
+        :param pos:
+        :return:
+        """
+        x, y = self.move_dispo[random.randint(0, len(self.move_dispo) - 1)]
+
         self.last_x = self.x
         self.last_y = self.y
 
         self.x = x
         self.y = y
+
+        self.move_dispo.clear()
 
     @property
     def last_move(self) -> tuple[int,int]:
