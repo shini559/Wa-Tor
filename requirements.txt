@@ -14,4 +14,3 @@ platformdirs==4.3.7
 pycodestyle==2.13.0
 pyflakes==3.3.2
 pylint==3.3.6
-tomlkit==0.13.2
