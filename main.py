@@ -1,12 +1,11 @@
-from src.core.planet import Planet
-from ui.screen import GridDisplay
-from src.core.config import NB_TUNA, NB_SHARK
+from src.core.display_interface import DisplayInterface
+from src.display.terminal_display import TerminalDisplay
 
-# Création et initialisation de la planète
-planet = Planet()
-planet.initialize(NB_TUNA, NB_SHARK)
 
-#planet.display()
+def main():
+    display = TerminalDisplay()
+    display.proccess()
 
-app = GridDisplay(planet)
-app.run()
+
+if __name__ == "__main__":
+    main()
