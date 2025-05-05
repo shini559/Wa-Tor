@@ -21,6 +21,9 @@ class GridDisplay():
         self.root.title("Wa-Tor")
         self.canvas = tk.Canvas(self.root, width=WIDTH * CELL_SIZE, height=HEIGHT * CELL_SIZE, bg="lightblue")
         self.canvas.pack()
+        self.pause_button = tk.Button(self.root, text = "Pause" , command = self.toggle_pause)
+        self.pause_button.pack(pady= 10)
+        self.pause = False
 
         # Chargement des images dans un self.images
         self.images = {
@@ -37,6 +40,8 @@ class GridDisplay():
 
         restart_btn = tk.Button(btn_frame, text="Relancer", command=self.restart_simulation, bg="green", fg="black")
         restart_btn.pack(side="left", padx=10, pady=5)
+
+
 
     def draw(self):
         self.canvas.delete("all")
@@ -69,6 +74,14 @@ class GridDisplay():
         self.canvas.delete("all")
         self.planet.initialize(NB_TUNA , NB_SHARK)
         self.draw()
+
+    def toggle_pause(self):
+        """
+        Toggle the pause state of the simulation.
+        """
+        self.pause = not self.pause
+        self.pause_button.config(text="Pause" if self.pause else "Play")
+
 
 
 
