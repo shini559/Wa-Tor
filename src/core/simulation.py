@@ -16,7 +16,7 @@ class Simulation:
         self.pause = False
 
     def setup_controls(self):
-        """:cvarConfiguration des controles communs"""
+        """Configuration des controles communs"""
         self.chronon_label = tk.Label(self.root, text="Chronon: 1", bg="lightblue", fg="black")
         self.chronon_label.pack(pady=10)
 
