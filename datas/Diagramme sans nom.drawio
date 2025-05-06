@@ -5,7 +5,7 @@
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="Od0c_wyd5FBFl1-f2Q9G-4" value="Fish" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="230" y="90" width="160" height="180" as="geometry" />
+          <mxGeometry x="260" y="40" width="160" height="180" as="geometry" />
         </mxCell>
         <mxCell id="Od0c_wyd5FBFl1-f2Q9G-5" value="+ position: Position&lt;br&gt;+ last_position: Position&lt;div&gt;+&amp;nbsp;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(51, 51, 51);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;reproduction_timer: int&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#333333&quot;&gt;+ age: int&lt;br&gt;&lt;/font&gt;&lt;div&gt;-------------------------------------&lt;/div&gt;&lt;div&gt;- Scan() -&amp;gt; None&lt;/div&gt;&lt;div&gt;- Move()&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;-&amp;gt; None&lt;/span&gt;&lt;/div&gt;&lt;div&gt;- reproduction()&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;-&amp;gt; None&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" parent="Od0c_wyd5FBFl1-f2Q9G-4" vertex="1">
           <mxGeometry y="30" width="160" height="150" as="geometry" />
@@ -14,7 +14,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Od0c_wyd5FBFl1-f2Q9G-9" value="Tuna" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="140" y="350" width="160" height="130" as="geometry" />
+          <mxGeometry x="160" y="350" width="160" height="130" as="geometry" />
         </mxCell>
         <mxCell id="Od0c_wyd5FBFl1-f2Q9G-10" value="+&amp;nbsp;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(51, 51, 51);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;reproduction_timer: int&lt;/font&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(51, 51, 51);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(51, 51, 51);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;-------------------------------------&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(51, 51, 51);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;-&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(51, 51, 51);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" parent="Od0c_wyd5FBFl1-f2Q9G-9" vertex="1">
           <mxGeometry y="50" width="160" height="80" as="geometry" />
@@ -23,7 +23,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Od0c_wyd5FBFl1-f2Q9G-12" value="Shark" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="330" y="350" width="160" height="130" as="geometry" />
+          <mxGeometry x="360" y="350" width="160" height="130" as="geometry" />
         </mxCell>
         <mxCell id="Od0c_wyd5FBFl1-f2Q9G-13" value="+&amp;nbsp;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(51, 51, 51);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;reproduction_timer: int&lt;/font&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(51, 51, 51);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(51, 51, 51);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;-------------------------------------&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(51, 51, 51);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;-&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(51, 51, 51);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" parent="Od0c_wyd5FBFl1-f2Q9G-12" vertex="1">
           <mxGeometry y="50" width="160" height="80" as="geometry" />
@@ -89,17 +89,6 @@
               <mxPoint x="571" y="379" />
               <mxPoint x="571" y="534" />
             </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="LcW6HPfmmMmJOzSTk2mN-0" value="Position" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="10" y="90" width="190" height="130" as="geometry" />
-        </mxCell>
-        <mxCell id="LcW6HPfmmMmJOzSTk2mN-1" value="+&amp;nbsp;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(51, 51, 51);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;x: int&lt;/font&gt;&lt;/span&gt;&lt;div&gt;&lt;font color=&quot;#333333&quot;&gt;+ y: int&lt;/font&gt;&lt;div&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(51, 51, 51);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;---------------------------------------------&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(51, 51, 51);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;- get_position() -&amp;gt; Position&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(51, 51, 51);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;- set_position(x: int, y:int) -&amp;gt; None&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(51, 51, 51);&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="LcW6HPfmmMmJOzSTk2mN-0">
-          <mxGeometry y="50" width="190" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="LcW6HPfmmMmJOzSTk2mN-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="LcW6HPfmmMmJOzSTk2mN-1" target="Od0c_wyd5FBFl1-f2Q9G-5">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="105" y="260" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
