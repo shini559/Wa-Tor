@@ -1,8 +1,10 @@
 import itertools
 from src.core.config import WIDTH, HEIGHT
+from src.core.fish import Fish
 from src.core.tuna import Tuna
 from src.core.shark import Shark
 import random
+
 
 
 class Planet():
@@ -26,11 +28,11 @@ class Planet():
 
         for _ in range(NB_TUNA):
             x, y = positions.pop()
-            self.grid[x][y] = Tuna(x, y)
+            self.grid[y][x] = Tuna(x, y)
 
         for _ in range(NB_SHARK):
             x, y = positions.pop()
-            self.grid[x][y] = Shark(x, y)
+            self.grid[y][x] = Shark(x, y)
 
 
     def update(self):
@@ -38,21 +40,24 @@ class Planet():
         update the planet
         """
         self.chronon += 1
-
-        # A supprimer plus tard
-
         moved = set()
 
-        for x, y in itertools.product(range(WIDTH), range(HEIGHT)):
-            entity = self.grid[x][y]
+        for y, x in itertools.product(range(HEIGHT), range(WIDTH)):  # Correction ici
+            entity = self.grid[y][x]
             if entity is not None and (x, y) not in moved:
-                dx, dy = random.choice([(0, 1), (0, -1), (1, 0), (-1, 0)])
-                new_x, new_y = self.toroidal_position(x + dx, y + dy)
+                # Simule des cases autour disponibles
+                entity.move_dispo = [
+                    self.toroidal_position(x + dx, y + dy)
+                    for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]
+                    if self.grid[self.toroidal_position(x + dx, y + dy)[1]][
+                           self.toroidal_position(x + dx, y + dy)[0]] is None
+                ]
 
-                if self.grid[new_x][new_y] is None:
-                    self.grid[new_x][new_y] = entity
-                    self.grid[x][y] = None
-                    #entity.move(new_x, new_y)
+                if entity.move_dispo:
+                    entity.move()  # Appel à la méthode move() de l'entité
+                    new_x, new_y = entity.x, entity.y
+                    self.grid[new_y][new_x] = entity
+                    self.grid[y][x] = None
                     moved.add((new_x, new_y))
                 else:
                     moved.add((x, y))
