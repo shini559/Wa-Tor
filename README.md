@@ -13,23 +13,18 @@ Wa-Tor/
 │   │
 │   ├── core/              # Comportements et règles de la simulation
 │   │   ├── __init__.py
+│   │   ├── position.py    # Classe Position (x, y)
 │   │   ├── planet.py      # Classe Planete (grille, toroïdalité, gestion globale)
-│   │   ├── entity.py      # Classe de base Entity (poisson, requin)
-│   │   ├── fish.py        # Classe Fish (Poisson) héritant de Entity
+│   │   ├── simulation.py  # Classe Simulation (deroulement de la simulation)
+│   │   ├── fish.py        # Classe Fish (class abstract)
 │   │   ├── tuna.py        # Classe Tuna (Thon) héritant de Fish
 │   │   ├── shark.py       # Classe Shark (Requin) héritant de Fish
 │   │   └── config.py      # Paramètres globaux (taille, temps de reproduction, etc.)
-│   │
-│   ├── utils/             # Fonctions utilitaires (ex: calcul voisinage, affichage)
-│   │   ├── __init__.py
-│   │   └── visualizer.py  # (optionnel) Affichage texte ou graphique de la simulation
 │
 └── tests/                 # Tests unitaires
     ├── __init__.py
-    ├── test_planet.py
-    ├── test_fish.py
-    ├── test_shark.py
-    └── test_utils.py
+    ├── test_position.py   # Test class Position
+    └── ...
 ```
 
 # Developement
