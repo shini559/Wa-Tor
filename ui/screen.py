@@ -1,3 +1,4 @@
+import itertools
 import tkinter as tk
 import os
 from src.core.config import WIDTH, HEIGHT, NB_TUNA, NB_SHARK
@@ -21,9 +22,14 @@ class GridDisplay():
         self.root.title("Wa-Tor")
         self.canvas = tk.Canvas(self.root, width=WIDTH * CELL_SIZE, height=HEIGHT * CELL_SIZE, bg="lightblue")
         self.canvas.pack()
+
+        self.chronon = 0
+        self.chronon_label = tk.Label(self.root, text = "Chronon: 1", bg = "lightblue", fg = "black")
+        self.chronon_label.pack(pady= 10)
+
         self.pause_button = tk.Button(self.root, text = "Pause" , command = self.toggle_pause)
-        self.pause_button.pack(pady= 10)
         self.pause = False
+        self.pause_button.pack(pady= 10)
 
         # Chargement des images dans un self.images
         self.images = {
@@ -31,6 +37,8 @@ class GridDisplay():
             "tuna": load_image("fish.png"),
             "shark": load_image("shark.png"),
         }
+
+        self.update()
 
         btn_frame = tk.Frame(self.root)  # conteneur pour les boutons
         btn_frame.pack(pady=10)
@@ -43,27 +51,39 @@ class GridDisplay():
 
 
 
+
+    def update(self):
+        """
+        update the grid display
+        """
+        if not self.pause:
+            self.planet.update()
+            self.chronon += 1
+            self.chronon_label.config(text = f"Chronon: {self.chronon_label}")
+            self.draw()
+        self.root.after(200, self.update)
+
+
+
+
     def draw(self):
         self.canvas.delete("all")
 
-        for i in range(HEIGHT):
-            for j in range(WIDTH):
-                x = j * CELL_SIZE
-                y = i * CELL_SIZE
+        for i, j in itertools.product(range(HEIGHT), range(WIDTH)):
+            x = j * CELL_SIZE
+            y = i * CELL_SIZE
 
-                entity = self.planet.grid[i][j]
-                if entity is None:
-                    img = self.images["water"]
-                elif str(entity) == "F":
-                    img = self.images["tuna"]
-                elif str(entity) == "S":
-                    img = self.images["shark"]
-                else:
-                    img = self.images["water"]
-
-                self.canvas.create_image(x, y, anchor="nw", image=img)
+            entity = self.planet.grid[i][j]
+            if entity is None or str(entity) not in ["F", "S"]:
+                img = self.images["water"]
+            elif str(entity) == "F":
+                img = self.images["tuna"]
+            else:
+                img = self.images["shark"]
+            self.canvas.create_image(x, y, anchor="nw", image=img)
 
         self.root.image_refs = self.images  # conserver les images en mémoire
+        self.chronon_label.config(text = f"Chronon: {self.planet.chronon}")
 
     def stop_simulation(self):
         """Ferme la fenêtre"""
@@ -73,6 +93,7 @@ class GridDisplay():
         """Réinitialise la planète et redessine"""
         self.canvas.delete("all")
         self.planet.initialize(NB_TUNA , NB_SHARK)
+        self.planet.chronon = 1
         self.draw()
 
     def toggle_pause(self):
@@ -80,7 +101,8 @@ class GridDisplay():
         Toggle the pause state of the simulation.
         """
         self.pause = not self.pause
-        self.pause_button.config(text="Pause" if self.pause else "Play")
+        new_label = "Play" if self.pause else "Pause"
+        self.pause_button.config(text=new_label)
 
 
 
