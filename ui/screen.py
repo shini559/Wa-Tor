@@ -3,6 +3,7 @@ import tkinter as tk
 import os
 from src.core.config import WIDTH, HEIGHT, NB_TUNA, NB_SHARK
 from PIL import Image, ImageTk
+from src.core.simulation import Simulation
 
 
 CELL_SIZE = 20
@@ -14,22 +15,17 @@ def load_image(filename):
     path = os.path.join(assets_path, filename)
     return ImageTk.PhotoImage(Image.open(path).resize((CELL_SIZE, CELL_SIZE)))
 
-class GridDisplay():
+class GridDisplay(Simulation):
     def __init__(self, planet):
+        super().__init__(planet)
         self.planet = planet
         self.root = tk.Tk()
         self.root.resizable(False, False)
         self.root.title("Wa-Tor")
         self.canvas = tk.Canvas(self.root, width=WIDTH * CELL_SIZE, height=HEIGHT * CELL_SIZE, bg="lightblue")
         self.canvas.pack()
+        self.setup_controls()
 
-        self.chronon = 0
-        self.chronon_label = tk.Label(self.root, text = "Chronon: 1", bg = "lightblue", fg = "black")
-        self.chronon_label.pack(pady= 10)
-
-        self.pause_button = tk.Button(self.root, text = "Pause" , command = self.toggle_pause)
-        self.pause = False
-        self.pause_button.pack(pady= 10)
 
         # Chargement des images dans un self.images
         self.images = {
@@ -39,17 +35,6 @@ class GridDisplay():
         }
 
         self.update()
-
-        btn_frame = tk.Frame(self.root)  # conteneur pour les boutons
-        btn_frame.pack(pady=10)
-
-        stop_btn = tk.Button(btn_frame, text="Arrêter", command=self.stop_simulation, bg="red", fg="black")
-        stop_btn.pack(side="left", padx=10, pady=5)
-
-        restart_btn = tk.Button(btn_frame, text="Relancer", command=self.restart_simulation, bg="green", fg="black")
-        restart_btn.pack(side="left", padx=10, pady=5)
-
-
 
 
     def update(self):
@@ -85,28 +70,7 @@ class GridDisplay():
         self.root.image_refs = self.images  # conserver les images en mémoire
         self.chronon_label.config(text = f"Chronon: {self.planet.chronon}")
 
-    def stop_simulation(self):
-        """Ferme la fenêtre"""
-        self.root.destroy()
-
-    def restart_simulation(self):
-        """Réinitialise la planète et redessine"""
-        self.canvas.delete("all")
-        self.planet.initialize(NB_TUNA , NB_SHARK)
-        self.planet.chronon = 1
-        self.draw()
-
-    def toggle_pause(self):
-        """
-        Toggle the pause state of the simulation.
-        """
-        self.pause = not self.pause
-        new_label = "Play" if self.pause else "Pause"
-        self.pause_button.config(text=new_label)
 
 
 
 
-    def run(self):
-        self.draw()
-        self.root.mainloop()
