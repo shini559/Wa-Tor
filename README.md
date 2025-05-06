@@ -13,7 +13,6 @@ Wa-Tor/
 │   │
 │   ├── core/              # Comportements et règles de la simulation
 │   │   ├── __init__.py
-│   │   ├── position.py    # Classe Position (x, y)
 │   │   ├── planet.py      # Classe Planete (grille, toroïdalité, gestion globale)
 │   │   ├── simulation.py  # Classe Simulation (deroulement de la simulation)
 │   │   ├── fish.py        # Classe Fish (class abstract)
