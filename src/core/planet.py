@@ -39,7 +39,9 @@ class Planet():
         """
         self.chronon += 1
 
-        moved = set() # A suprimer plus tard
+        # A supprimer plus tard
+
+        moved = set()
 
         for x, y in itertools.product(range(WIDTH), range(HEIGHT)):
             entity = self.grid[x][y]
@@ -50,7 +52,7 @@ class Planet():
                 if self.grid[new_x][new_y] is None:
                     self.grid[new_x][new_y] = entity
                     self.grid[x][y] = None
-                    entity.move(new_x, new_y)
+                    #entity.move(new_x, new_y)
                     moved.add((new_x, new_y))
                 else:
                     moved.add((x, y))
