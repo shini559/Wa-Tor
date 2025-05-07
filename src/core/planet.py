@@ -34,11 +34,26 @@ class Planet():
             x, y = positions.pop()
             self.grid[y][x] = Shark(x, y)
 
+    def count_fish(self):
+        """Compte le nombre de requins et de thons sur la planète"""
+
+        nb_tuna = 0
+        nb_shark = 0
+
+        for row in self.grid:
+            for entity in row:
+                if isinstance(entity, Tuna):
+                    nb_tuna += 1
+                elif isinstance(entity, Shark):
+                    nb_shark += 1
+        return nb_tuna, nb_shark
 
     def update(self):
         """
         update the planet
         """
+        nb_tuna, nb_shark = self.count_fish()
+
         self.chronon += 1
         moved = set()
 
@@ -70,3 +85,5 @@ class Planet():
         :return: tuple of (x, y) coordinates
         """
         return x % WIDTH, y % HEIGHT
+
+
