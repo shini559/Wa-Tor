@@ -3,9 +3,10 @@ import tkinter as tk
 import os
 from src.core.config import WIDTH, HEIGHT, NB_TUNA, NB_SHARK
 from PIL import Image, ImageTk
-
 from src.core.planet import Planet
 from src.core.simulation import Simulation
+from src.core.history import History
+
 
 
 CELL_SIZE = 20
@@ -133,3 +134,9 @@ class GridDisplay:
 
         self.simulation.start()
         self.root.mainloop()
+
+    # Création
+        self.history = History()
+
+    # Enregistrement lors de la fin de la simulation
+        self.history.log(self.planet.chronon)
