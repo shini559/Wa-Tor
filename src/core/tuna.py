@@ -15,6 +15,13 @@ class Tuna(Fish):
         super().__init__(x, y)
         self.reproduction_timer: int = TUNA_REPRODUCTION_TIME
 
+
+    def reset_reproduction_timer(self):
+        """
+        Réinitialise le timer de reproduction
+        """
+        self.reproduction_timer = TUNA_REPRODUCTION_TIME
+
     def __str__(self):
         return "F"  # F pour Fish (poisson)
 

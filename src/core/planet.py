@@ -42,25 +42,17 @@ class Planet():
         self.chronon += 1
         moved = set()
 
-        for y, x in itertools.product(range(HEIGHT), range(WIDTH)):  # Correction ici
-            entity = self.grid[y][x]
-            if entity is not None and (x, y) not in moved:
-                # Simule des cases autour disponibles
-                entity.move_dispo = [
-                    self.toroidal_position(x + dx, y + dy)
-                    for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]
-                    if self.grid[self.toroidal_position(x + dx, y + dy)[1]][
-                           self.toroidal_position(x + dx, y + dy)[0]] is None
-                ]
-
-                if entity.move_dispo:
-                    entity.move()  # Appel à la méthode move() de l'entité
-                    new_x, new_y = entity.x, entity.y
-                    self.grid[new_y][new_x] = entity
-                    self.grid[y][x] = None
-                    moved.add((new_x, new_y))
-                else:
-                    moved.add((x, y))
+        for y in range(HEIGHT):
+            for x in range(WIDTH):
+                entity = self.grid[y][x]
+                if entity is not None and (x, y) not in moved:
+                    # Donne à l'entité une référence à la grille
+                    entity.set_grid(self.grid)
+                    # Laisse l'entité gérer son propre mouvement
+                    if entity.move(WIDTH, HEIGHT):
+                        moved.add((entity.x, entity.y))
+                    else:
+                        moved.add((x, y))
 
     def toroidal_position(self, x: int, y: int) -> tuple:
         """
@@ -70,3 +62,35 @@ class Planet():
         :return: tuple of (x, y) coordinates
         """
         return x % WIDTH, y % HEIGHT
+
+    def is_grid_full(self) -> bool:
+        """
+        Vérifie si toutes les cases sont occupées
+        """
+        for row in self.grid:
+            for cell in row:
+                if cell is None:
+                    return False
+        return True
+
+    def count_entities(self) -> tuple[int, int]:
+        """
+        Compte le nombre de thons et de requins
+        """
+        tuna_count = 0
+        shark_count = 0
+        for row in self.grid:
+            for cell in row:
+                if cell is not None:
+                    if str(cell) == "F":
+                        tuna_count += 1
+                    elif str(cell) == "S":
+                        shark_count += 1
+        return tuna_count, shark_count
+
+    def should_stop(self) -> bool:
+        """
+        Vérifie si la simulation doit s'arrêter
+        """
+        tuna_count, _ = self.count_entities()
+        return self.is_grid_full() or tuna_count == 0
