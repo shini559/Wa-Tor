@@ -26,6 +26,12 @@ class GridDisplay(Simulation):
         self.canvas.pack()
         self.setup_controls()
 
+        self.tuna_count_label = tk.Label(self.root, text="Tuna: 0", font=("Arial", 12))
+        self.tuna_count_label.pack()
+
+        self.shark_count_label = tk.Label(self.root, text="Shark: 0", font=("Arial", 12))
+        self.shark_count_label.pack()
+
 
         # Chargement des images dans un self.images
         self.images = {
@@ -53,6 +59,11 @@ class GridDisplay(Simulation):
 
     def draw(self):
         self.canvas.delete("all")
+
+        nb_tuna, nb_shark = self.planet.count_fish()
+
+        self.tuna_count_label.config(text=f"Tuna: {nb_tuna}")
+        self.shark_count_label.config(text=f"Shark: {nb_shark}")
 
         for i, j in itertools.product(range(HEIGHT), range(WIDTH)):
             x = j * CELL_SIZE
