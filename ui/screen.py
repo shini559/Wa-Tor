@@ -6,7 +6,7 @@ from PIL import Image, ImageTk
 from src.core.simulation import Simulation
 from tkinter import messagebox
 
-CELL_SIZE = 20
+CELL_SIZE = 15
 
 base_path = os.path.dirname(os.path.abspath(__file__))
 assets_path = os.path.join(base_path, "assets")
@@ -20,7 +20,7 @@ class GridDisplay(Simulation):
         super().__init__(planet)
         self.planet = planet
         self.root = tk.Tk()
-        self.root.resizable(False, False)
+        #self.root.resizable(False, False)
         self.root.title("Wa-Tor")
         self.canvas = tk.Canvas(self.root, width=WIDTH * CELL_SIZE, height=HEIGHT * CELL_SIZE, bg="lightblue")
         self.canvas.pack()
