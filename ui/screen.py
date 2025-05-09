@@ -36,6 +36,10 @@ class GridDisplay:
         self.shark_count_label = tk.Label(self.root, text="Shark: 0", font=("Arial", 12))
         self.shark_count_label.pack()
 
+        self.first_update = True
+        self.status_label = tk.Label(self.root, text="Simulation en cours", font=("Arial", 12))
+        self.status_label.pack()
+
         self.pause = False
 
 
@@ -48,16 +52,51 @@ class GridDisplay:
 
         self.update()
 
+        self.history = History()
+
 
     def update(self):
         """
-        update the grid display
+        Met à jour l'affichage de la grille et vérifie les conditions d'arrêt
         """
         if not self.pause:
+            if self.first_update:
+                self.first_update = False
+                self.chronon_label.config(text=f"Chronon: {self.simulation.chronon}")
+                self.simulation.cycle()
+                self.draw()
+            else:
+                # Vérifier les conditions d'arrêt
+                nb_tuna, nb_shark = self.planet.count_fish()
+                total_creatures = nb_tuna + nb_shark
+                total_cells = WIDTH * HEIGHT
+
+                # Condition 1 : Plus aucune créature vivante
+                if total_creatures == 0:
+                    raison = "Plus aucune créature vivante"
+                    self.status_label.config(text=f"Simulation terminée : {raison}", fg="red")
+                    self.history.log(self.planet.chronon, raison, nb_tuna, nb_shark)
+                    self.pause = True
+                    return
+
+                # Condition 2 : Grille pleine
+                if total_creatures == total_cells:
+                    raison = "La grille est pleine"
+                    self.status_label.config(text=f"Simulation terminée : {raison}", fg="red")
+                    self.history.log(self.planet.chronon, raison, nb_tuna, nb_shark)
+                    self.pause = True
+                    return
+
             self.chronon_label.config(text = f"Chronon: {self.simulation.chronon}")
             self.simulation.cycle()
             self.draw()
         self.root.after(200, self.update)
+
+
+    def _extracted_from_update_13(self, arg0):
+        print(arg0)
+        self.pause = True
+        return
 
 
 
@@ -124,7 +163,14 @@ class GridDisplay:
 
 
     def stop_simulation(self):
-        """Ferme la fenêtre"""
+        """Ferme la fenêtre et enregistre l'arrêt manuel"""
+        nb_tuna, nb_shark = self.planet.count_fish()
+        self.history.log(
+            self.planet.chronon, 
+            "Arrêt manuel par l'utilisateur",
+            nb_tuna,
+            nb_shark
+        )
         self.root.destroy()
 
     def run(self):
@@ -134,9 +180,3 @@ class GridDisplay:
 
         self.simulation.start()
         self.root.mainloop()
-
-    # Création
-        self.history = History()
-
-    # Enregistrement lors de la fin de la simulation
-        self.history.log(self.planet.chronon)

@@ -15,7 +15,10 @@ class History:
             "NB_TUNA", "NB_SHARK",
             "TUNA_REPRODUCTION_TIME", "SHARK_REPRODUCTION_TIME",
             "SHARK_ENERGY", "SHARK_ENERGY_GAIN",
-            "chronon_final"
+            "chronon_final",
+            "nb_tuna_final",
+            "nb_shark_final",
+            "raison_arret"
         ]
 
         if not self.file_path.exists():
@@ -26,15 +29,18 @@ class History:
             writer = csv.writer(f)
             writer.writerow(self.headers)
 
-    def log(self, chronon_final: int):
+    def log(self, chronon_final: int, raison="", nb_tuna_final=0, nb_shark_final=0):
         now = datetime.now()
         data = [
-            now.strftime("%Y-%m-%d"),
+            now.strftime("%d-%m-%y"),
             now.strftime("%H:%M:%S"),
             NB_TUNA, NB_SHARK,
             TUNA_REPRODUCTION_TIME, SHARK_REPRODUCTION_TIME,
             SHARK_ENERGY, SHARK_ENERGY_GAIN,
-            chronon_final
+            chronon_final,
+            nb_tuna_final,
+            nb_shark_final,
+            raison
         ]
         with self.file_path.open("a", newline="") as f:
             writer = csv.writer(f)
