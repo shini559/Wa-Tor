@@ -1,4 +1,4 @@
-date,heure,NB_TUNA,NB_SHARK,TUNA_REPRODUCTION_TIME,SHARK_REPRODUCTION_TIME,SHARK_ENERGY,SHARK_ENERGY_GAIN,chronon_final
+date,heure,NB_TUNA,NB_SHARK,TUNA_REPRODUCTION_TIME,SHARK_REPRODUCTION_TIME,SHARK_ENERGY,SHARK_ENERGY_GAIN,chronon_final,nb_tuna_final,nb_shark_final,raison_arret
 2025-05-09,10:03:38,70,25,3,6,5,4,21
 2025-05-09,10:04:56,70,25,3,6,5,4,207
 2025-05-09,10:05:10,70,25,3,6,5,4,4
@@ -25,3 +25,9 @@ date,heure,NB_TUNA,NB_SHARK,TUNA_REPRODUCTION_TIME,SHARK_REPRODUCTION_TIME,SHARK
 09-05-25,10:42:55,1,25,10,6,10,4,134,0,32,Arrêt manuel par l'utilisateur
 09-05-25,10:43:11,1,25,10,11,10,4,18,2,0,Arrêt manuel par l'utilisateur
 09-05-25,10:43:24,1,25,10,11,10,4,22,0,0,Plus aucune créature vivante
+09-05-25,10:45:48,1,25,10,11,10,4,17,2,0,Arrêt manuel par l'utilisateur
+09-05-25,10:46:43,70,25,3,6,5,4,165,916,427,Arrêt manuel par l'utilisateur
+09-05-25,11:03:28,70,25,3,6,5,4,96,769,239,Arrêt manuel par l'utilisateur
+09-05-25,11:05:47,70,25,3,6,5,4,8,271,6,Arrêt manuel par l'utilisateur
+09-05-25,11:06:12,70,25,3,6,5,4,6,151,6,Arrêt manuel par l'utilisateur
+09-05-25,12:04:46,70,25,3,6,5,4,94,96,75,Arrêt manuel par l'utilisateur
