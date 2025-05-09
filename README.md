@@ -1,57 +1,114 @@
-# Wa-Tor
+# 🌊 Wa-Tor — Simulation de Monde Toroïdal
+
+**Wa-Tor** est une simulation de vie marine inspirée du modèle écologique de l’univers toroïdal, dans lequel des thons (`Tuna`) et des requins (`Shark`) interagissent dans un environnement clos. Chaque entité suit un cycle de vie défini avec des comportements propres (déplacement, reproduction, prédation). L’objectif est de visualiser l’évolution d’un écosystème simple dans un monde sans bords (toroïdal).
+
+---
+
+## 📁 Architecture du projet
+
 ```
-# Architecture du projet
+
 Wa-Tor/
 │
 ├── README.md              # Explication du projet, comment l'utiliser, etc.
 ├── requirements.txt       # Dépendances éventuelles
 ├── main.py                # Script principal pour démarrer la simulation
-├── makefile.py            # Script application(exemple : make run pour executer l'application)
+├── makefile.py            # Commandes utiles (ex: make run)
 │
 ├── src/                   # Code source
 │   ├── __init__.py
 │   │
-│   ├── core/              # Comportements et règles de la simulation
+│   ├── core/              # Logique et comportements de la simulation
 │   │   ├── __init__.py
-│   │   ├── planet.py      # Classe Planete (grille, toroïdalité, gestion globale)
-│   │   ├── entity.py      # Classe de base Entity (poisson, requin)
-│   │   ├── fish.py        # Classe Fish (Poisson) héritant de Entity
-│   │   ├── tona.py        # Classe Shark (Thon) héritant de Fish
-│   │   ├── shark.py       # Classe Shark (Requin) héritant de Fish
-│   │   └── config.py      # Paramètres globaux (taille, temps de reproduction, etc.)
+│   │   ├── planet.py      # Classe Planète (grille, toroïdalité)
+│   │   ├── simulation.py  # Classe Simulation (déroulement de la simulation)
+│   │   ├── fish.py        # Classe abstraite Fish
+│   │   ├── tuna.py        # Classe Tuna (thon)
+│   │   ├── shark.py       # Classe Shark (requin)
+│   │   └── config.py      # Paramètres globaux
 │   │
-│   ├── utils/             # Fonctions utilitaires (ex: calcul voisinage, affichage)
-│   │   ├── __init__.py
-│   │   └── visualizer.py  # (optionnel) Affichage texte ou graphique de la simulation
+│   └── ui/                # Interface graphique
+│       ├── __init__.py
+│       ├── screen.py      # Interface Tkinter (affichage, boutons)
+│       └── assets/        # Images utilisées par l'interface
+│           ├── __init__.py
+│           ├── fish.png
+│           ├── sea.png
+│           └── shark.png
 │
 └── tests/                 # Tests unitaires
     ├── __init__.py
-    ├── test_planet.py
-    ├── test_fish.py
-    ├── test_shark.py
-    └── test_utils.py
+    ├── test_position.py
+    └── ...
+
 ```
 
-# Developement
+---
 
-## pour installer l'environement
+## 🚀 Lancer la simulation
 
-``` bash
+### 🧱 Préparer l’environnement (crée un environnement virtuel et le configure) :
+```bash
 make prepare
 ```
 
-## pour installer les dependence
-``` bash
+### 📦 Installer les dépendances :
+```bash
 make install
 ```
 
-## pour executer 
-``` bash
+### ▶️ Exécuter la simulation :
+```bash
 make run
 ```
 
-## analyse la qualité du code
-``` bash
+---
+
+## 🧪 Qualité et analyse du code
+
+### Formatter automatiquement le code :
+```bash
 make fix
+```
+
+### Analyser le code (linting / conventions) :
+```bash
 make analyse
 ```
+
+---
+
+## ✅ Fonctionnalités principales
+
+- 🌍Monde toroïdal (les entités sortent d’un côté et réapparaissent de l’autre).
+- 🐟Déplacement autonome des entités (avec priorités différentes selon l’espèce).
+- 🦈Prédation : les requins chassent les thons s’ils sont à proximité.
+- ⏱ Système de chronons pour gérer le temps dans la simulation.
+- 🎨Interface graphique avec bouton Pause/Play et Relancer.
+- 🐣Reproduction des entités après un certain nombre de chronons.
+- ⚡️Gestion de l’énergie des requins (meurent s’ils ne mangent pas).
+- 💾Export ou sauvegarde de l’état de la simulation.
+- 📊Statistiques d’évolution (nombre de thons/requins par chronon).
+
+
+---
+
+## 💡 À venir (roadmap)
+
+- 🧪Intégration de tests unitaires.
+
+---
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! Tu peux :
+- proposer des améliorations,
+- signaler des bugs,
+- ajouter de nouvelles fonctionnalités.
+
+
+---
+
+## 📜 Licence
+
+Ce projet est open-source.
