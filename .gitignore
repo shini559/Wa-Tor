@@ -176,3 +176,4 @@ cython_debug/
 
 #MAC OS
 *.DS_Store
+simulation_history.csv
