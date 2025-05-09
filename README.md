@@ -18,23 +18,23 @@ Wa-Tor/
 ├── src/                   # Code source
 │   ├── __init__.py
 │   │
-│   ├── core/              # Logique et comportements de la simulation
-│   │   ├── __init__.py
-│   │   ├── planet.py      # Classe Planète (grille, toroïdalité)
-│   │   ├── simulation.py  # Classe Simulation (déroulement de la simulation)
-│   │   ├── fish.py        # Classe abstraite Fish
-│   │   ├── tuna.py        # Classe Tuna (thon)
-│   │   ├── shark.py       # Classe Shark (requin)
-│   │   └── config.py      # Paramètres globaux
-│   │
-│   └── ui/                # Interface graphique
-│       ├── __init__.py
-│       ├── screen.py      # Interface Tkinter (affichage, boutons)
-│       └── assets/        # Images utilisées par l'interface
-│           ├── __init__.py
-│           ├── fish.png
-│           ├── sea.png
-│           └── shark.png
+│   └── core/              # Logique et comportements de la simulation
+│         ├── __init__.py
+│         ├── planet.py      # Classe Planète (grille, toroïdalité)
+│         ├── simulation.py  # Classe Simulation (déroulement de la simulation)
+│         ├── fish.py        # Classe abstraite Fish
+│         ├── tuna.py        # Classe Tuna (thon)
+│         ├── shark.py       # Classe Shark (requin)
+│         └── config.py      # Paramètres globaux
+│   
+│── ui/                # Interface graphique
+│    ├── __init__.py
+│    ├── screen.py      # Interface Tkinter (affichage, boutons)
+│    └── assets/        # Images utilisées par l'interface
+│         ├── __init__.py
+│         ├── fish.png
+│         ├── sea.png
+│         └── shark.png
 │
 └── tests/                 # Tests unitaires
     ├── __init__.py
