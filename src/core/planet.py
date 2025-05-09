@@ -73,7 +73,7 @@ class Planet():
                     return False
         return True
 
-    def count_entities(self) -> tuple[int, int]:
+    def count_fish(self) -> tuple[int, int]:
         """
         Compte le nombre de thons et de requins
         """

@@ -8,5 +8,5 @@ planet.initialize(NB_TUNA, NB_SHARK)
 
 #planet.display()
 
-app = GridDisplay(planet)
+app = GridDisplay()
 app.run()
